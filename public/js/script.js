@@ -1,12 +1,6 @@
 'use strict';
 
-require('dotenv').config()
-
-const dialogflow = require('@google-cloud/dialogflow');
-const uuid = require('uuid');
-
-console.log('dialogflow: ' + dialogflow);
-console.log('uuid: ' + uuid);          
+        
 
 const socket = io();
 
