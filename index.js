@@ -7,6 +7,9 @@ const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
 const express = require('express');
 const app = express();
 
+const dialogflow = require('@google-cloud/dialogflow');
+const uuid = require('uuid');
+
 app.use(express.static(__dirname + '/views')); // html
 app.use(express.static(__dirname + '/public')); // js, css, images
 
