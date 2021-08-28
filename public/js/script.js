@@ -1,10 +1,10 @@
 'use strict';
 
-require(['@google-cloud/dialogflow'], function (@google-cloud/dialogflow) {
-    //@google-cloud/dialogflow is now loaded.
+const dialogflow = ''
+define(['require', '@google-cloud/dialogflow'], function (require) {
+     dialogflow = require('@google-cloud/dialogflow');
 });
 
-const dialogflow = require('@google-cloud/dialogflow');
 const uuid = require('uuid');
 
 const socket = io();
