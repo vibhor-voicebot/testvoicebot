@@ -1,6 +1,11 @@
 'use strict';
 
-        
+require('dotenv').config()
+
+// Instantiate a DialogFlow client.
+const dialogflow = require('dialogflow');  
+const uuid = require('uuid');  
+
 
 const socket = io();
 
