@@ -1,9 +1,11 @@
 'use strict';
 
-const socket = io();
+
 
 const dialogflow = require('@google-cloud/dialogflow');
 const uuid = require('uuid');
+
+const socket = io();
 
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
