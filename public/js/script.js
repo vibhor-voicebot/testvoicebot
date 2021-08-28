@@ -3,8 +3,8 @@
 require('dotenv').config()
 
 // Instantiate a DialogFlow client.
-import dialogflow from '@google-cloud/dialogflow';
-import uuid from 'uuid';
+const dialogflow = require('@google-cloud/dialogflow');
+const uuid = require('uuid');
 
 const socket = io();
 
