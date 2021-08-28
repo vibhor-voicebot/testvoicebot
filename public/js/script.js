@@ -2,7 +2,7 @@
 
 
 
-const dialogflow = require('@google-cloud/dialogflow');
+const dialogflow = require('dialogflow');
 const uuid = require('uuid');
 
 const socket = io();
