@@ -2,6 +2,8 @@
 
 const socket = io();
 
+const dialogflow = require('@google-cloud/dialogflow');
+const uuid = require('uuid');
 
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
@@ -56,8 +58,7 @@ socket.on('bot reply', function(replyText) {
 });
 
 
-const dialogflow = require('@google-cloud/dialogflow');
-const uuid = require('uuid');
+
 
 /**
  * Send a query to the dialogflow agent, and return the query result.
