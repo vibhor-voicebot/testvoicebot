@@ -74,7 +74,7 @@ socket.on('bot reply', function(replyText) {
  * Send a query to the dialogflow agent, and return the query result.
  * @param {string} projectId The project to be used
  */
-async function runSample(projectId = 'vibhorvoicebot-cjvqeb') { 
+async function runSample() { 
   const sessionId = uuid.v4();
 
 var config = {
@@ -87,7 +87,7 @@ var config = {
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient(config);
   const sessionPath = sessionClient.projectAgentSessionPath(
-    projectId,
+    'vibhorvoicebot-cjvqeb',
     sessionId
   );
 
@@ -117,4 +117,4 @@ var config = {
   }
 }
 
-runSample(...args).catch(console.error);
+runSample().catch(console.error);
