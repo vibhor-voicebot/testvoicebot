@@ -81,7 +81,7 @@ socket.on('bot reply', function(replyText) {
   };
 
   // Send request and log result
-  const responses = await sessionClient.detectIntent(request);
+  const responses = sessionClient.detectIntent(request);
   console.log('Detected intent');
   const result = responses[0].queryResult;
   console.log(`  Query: ${result.queryText}`);
