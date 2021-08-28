@@ -1,14 +1,9 @@
 'use strict';
 
-const dialogflow = ''
-define(['require', '@google-cloud/dialogflow'], function (require) {
-     dialogflow = require('@google-cloud/dialogflow');
-});
+require('dotenv').config()
 
-const uuid = ''
-define(['require', 'uuid'], function (require) {
-     uuid = require('uuid');
-});
+const dialogflow = require('@google-cloud/dialogflow');
+const uuid = require('uuid');
 
 console.log('dialogflow: ' + dialogflow);
 console.log('uuid: ' + uuid);          
