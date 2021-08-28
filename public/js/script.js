@@ -5,7 +5,13 @@ define(['require', '@google-cloud/dialogflow'], function (require) {
      dialogflow = require('@google-cloud/dialogflow');
 });
 
-const uuid = require('uuid');
+const uuid = ''
+define(['require', 'uuid'], function (require) {
+     uuid = require('uuid');
+});
+
+console.log('dialogflow: ' + dialogflow);
+console.log('uuid: ' + uuid);          
 
 const socket = io();
 
