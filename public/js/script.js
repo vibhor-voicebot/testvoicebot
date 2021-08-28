@@ -1,9 +1,10 @@
 'use strict';
-
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 require('dotenv').config()
 
 // Instantiate a DialogFlow client.
-const dialogflow = require('dialogflow');  
+const dialogflow = require('@google-cloud/dialogflow');  
 const uuid = require('uuid');  
 
 
