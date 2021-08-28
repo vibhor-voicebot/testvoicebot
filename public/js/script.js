@@ -1,6 +1,8 @@
 'use strict';
 
 const socket = io();
+const dialogflow = require('@google-cloud/dialogflow');
+const uuid = require('uuid');
 
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
@@ -55,21 +57,13 @@ socket.on('bot reply', function(replyText) {
 });
 
 
-const dialogflow = require('@google-cloud/dialogflow');
-const uuid = require('uuid');
-
-/**
- * Send a query to the dialogflow agent, and return the query result.
- * @param {string} projectId The project to be used
- */
-async function runSample(projectId = 'vibhorvoicebot-cjvqeb') {
-  // A unique identifier for the given session
+ 
   const sessionId = uuid.v4();
 
   // Create a new session
   const sessionClient = new dialogflow.SessionsClient();
   const sessionPath = sessionClient.projectAgentSessionPath(
-    projectId,
+    'vibhorvoicebot-cjvqeb',
     sessionId
   );
 
@@ -97,4 +91,3 @@ async function runSample(projectId = 'vibhorvoicebot-cjvqeb') {
   } else {
     console.log('  No intent matched.');
   }
-}
