@@ -1,14 +1,19 @@
 'use strict';
 
-require('dotenv').config()
+define(function(require) {
+    var dotenv = require('dotenv');
+});
+
+define(function(require) {
+    var express = require('express');
+});
+
+
 const APIAI_TOKEN = process.env.APIAI_TOKEN;
 const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
 
-const express = require('express');
 const app = express();
 
-const dialogflow = require('dialogflow');
-const uuid = require('uuid');
 
 app.use(express.static(__dirname + '/views')); // html
 app.use(express.static(__dirname + '/public')); // js, css, images
@@ -17,7 +22,11 @@ const server = app.listen(process.env.PORT || 5000, () => {
   console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
 });
 
-const io = require('socket.io')(server);
+
+define(function(require) {
+    var io = require('socket.io')(server);
+});
+
 
 const socket = io();
 
