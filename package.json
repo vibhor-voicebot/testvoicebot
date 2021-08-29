@@ -3,14 +3,6 @@
   "version": "1.0.0",
   "description": "Simple AI Chat Bot Demo with Web Speech API",
   "main": "index.js",
- "repository": "googleapis/nodejs-dialogflow",
-  "files": [
-    "*.js",
-    "resources"
-  ],
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
