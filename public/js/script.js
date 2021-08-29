@@ -1,33 +1,5 @@
 'use strict';
 
-define(function(require) {
-    var dotenv = require('dotenv');
-});
-
-define(function(require) {
-    var express = require('express');
-});
-
-
-const APIAI_TOKEN = process.env.APIAI_TOKEN;
-const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
-
-const app = express();
-
-
-app.use(express.static(__dirname + '/views')); // html
-app.use(express.static(__dirname + '/public')); // js, css, images
-
-const server = app.listen(process.env.PORT || 5000, () => {
-  console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
-});
-
-
-define(function(require) {
-    var io = require('socket.io')(server);
-});
-
-
 const socket = io();
 
 
@@ -77,6 +49,8 @@ function synthVoice(text) {
   synth.speak(utterance);
 }
 
+var moduleName2 = 'socket.io';
+require([moduleName2], function(io){
 io.on('connection', function(socket) {
 socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
@@ -85,5 +59,9 @@ socket.on('bot reply', function(replyText) {
   outputBot.textContent = replyText;
 });
 });
+
+
+});
+
 
 
