@@ -1,10 +1,7 @@
-'use strict';
-
-
 
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
-const Dialogflow = require("@google-cloud/dialogflow")
+const dialogFlow = require("dialogflow");
 const uuid = require("uuid")
 
 const socket = io();
@@ -79,7 +76,7 @@ var config = {
 }  
   
   // Create a new session
-  const sessionClient = new Dialogflow.SessionsClient(config);
+  const sessionClient = new dialogFlow.SessionsClient(config);
   const sessionPath = sessionClient.projectAgentSessionPath(
     'vibhorvoicebot-cjvqeb',
     sessionId
