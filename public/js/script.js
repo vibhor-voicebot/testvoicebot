@@ -4,8 +4,8 @@
 
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
-const dialogflow = require('dialogflow');
-//const uuid = new uuid();
+const Dialogflow = require("@google-cloud/dialogflow")
+const { v4 as uuid } = require("uuid")
 
 const socket = io();
 
@@ -69,7 +69,7 @@ socket.on('bot reply', function(replyText) {
  * @param {string} projectId The project to be used
  */
 async function runSample() { 
-  const sessionId = '1234567890';
+  const sessionId = uuid();
 
 var config = {
   credentials: {
@@ -79,7 +79,7 @@ var config = {
 }  
   
   // Create a new session
-  const sessionClient = new dialogflow.SessionsClient(config);
+  const sessionClient = new Dialogflow.SessionsClient(config);
   const sessionPath = sessionClient.projectAgentSessionPath(
     'vibhorvoicebot-cjvqeb',
     sessionId
