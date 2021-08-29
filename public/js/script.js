@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config()
+
 
 // Instantiate a DialogFlow client.
 const dialogflow = require('@google-cloud/dialogflow');
