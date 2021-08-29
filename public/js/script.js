@@ -1,73 +1,48 @@
-'use strict';
+const btn = document.querySelector("button");
+const outputme = document.querySelector(".output-you");
+const outputbot = document.querySelector(".output-bot");
+const socket = io();
 
-//const socket = io();
+const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
 
-var socket = io.connect('https://testvoicebotconsole.herokuapp.com');
-
-const outputYou = document.querySelector('.output-you');
-const outputBot = document.querySelector('.output-bot');
-
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
-recognition.lang = 'en-US';
+recognition.lang = "en-US";
 recognition.interimResults = false;
-recognition.maxAlternatives = 1;
 
-document.querySelector('button').addEventListener('click', () => {
+btn.addEventListener("click", () => {
   recognition.start();
 });
 
-recognition.addEventListener('speechstart', () => {
-  console.log('Speech has been detected.');
-});
+recognition.onresult = function (event) {
+  const last = event.results.length - 1;
+  const text = event.results[last][0].transcript;
+  console.log(text);
 
-recognition.addEventListener('result', (e) => {
-  console.log('Result has been detected.');
+  outputme.textContent = text;
 
-  let last = e.results.length - 1;
-  let text = e.results[last][0].transcript;
+  socket.emit("chat message", text);
+};
 
-  outputYou.textContent = text;
-  console.log('Confidence: ' + e.results[0][0].confidence);
-
-//  socket.on('connection', function(socket) {
-  socket.emit('chat message', text);
- // });
-
-
-});
-
-recognition.addEventListener('speechend', () => {
-  recognition.stop();
-});
-
-recognition.addEventListener('error', (e) => {
-  outputBot.textContent = 'Error: ' + e.error;
-});
-
-function synthVoice(text) {
+const botReply = (text) => {
   const synth = window.speechSynthesis;
   const utterance = new SpeechSynthesisUtterance();
   utterance.text = text;
+  utterance.pitch = 1;
+  utterance.volume = 1;
   synth.speak(utterance);
-}
+};
 
-//var moduleName2 = 'socket.io';
-//require([moduleName2], function(io){
-//socket.on('connection', function(socket) {
-socket.on('bot reply', function(replyText) {
-  synthVoice(replyText);
-
-  console.log('replyText: ' + replyText);
+socket.on("bot reply", (text) => {
+  outputbot.textContent = text;
+  botReply(text);
+  console.log('replyText: ' + text);
   
-  if(replyText == '') replyText = '(No answer...)';
-  outputBot.textContent = replyText;
+  if(text == '') text = '(No answer...)';
+  outputBot.textContent = text;
 });
-//});
 
-
-//});
 
 
 
