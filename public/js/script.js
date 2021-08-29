@@ -4,6 +4,7 @@
 
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
+const dialogflow = require('dialogflow');
 //const uuid = new uuid();
 
 const socket = io();
