@@ -49,9 +49,9 @@ function synthVoice(text) {
   synth.speak(utterance);
 }
 
-var moduleName2 = 'socket.io';
-require([moduleName2], function(io){
-io.on('connection', function(socket) {
+//var moduleName2 = 'socket.io';
+//require([moduleName2], function(io){
+socket.io.on('connection', function(socket) {
 socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
 
@@ -61,7 +61,7 @@ socket.on('bot reply', function(replyText) {
 });
 
 
-});
+//});
 
 
 
