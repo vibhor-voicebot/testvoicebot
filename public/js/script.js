@@ -1,8 +1,17 @@
 
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
-const dialogFlow = require("dialogflow");
-const uuid = require("uuid")
+
+var dialogFlow = ""
+var uuid = ""
+
+define(function (require) {
+    dialogFlow = require('dialogflow');
+});
+define(function (require) {
+    uuid = require('uuid');
+});
+
 
 const socket = io();
 
