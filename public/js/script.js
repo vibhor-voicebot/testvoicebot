@@ -5,7 +5,7 @@
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
 const Dialogflow = require("@google-cloud/dialogflow")
-const { v4 as uuid } = require("uuid")
+const uuid = require("uuid")
 
 const socket = io();
 
