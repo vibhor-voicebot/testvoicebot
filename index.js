@@ -7,13 +7,7 @@ const APIAI_SESSION_ID = process.env.APIAI_SESSION_ID;
 const express = require('express');
 const app = express();
 
-require(['dialogflow'], function (dialogflow) {
-    //dialogflow is now loaded.
-});
 
-require(['uuid'], function (uuid) {
-    //uuid is now loaded.
-});
 
 app.use(express.static(__dirname + '/views')); // html
 app.use(express.static(__dirname + '/public')); // js, css, images
