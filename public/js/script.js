@@ -3,8 +3,13 @@
 
 
 // Instantiate a DialogFlow client.
-const dialogflow = require('@google-cloud/dialogflow');
-const uuid = require('uuid');
+require(['@google-cloud/dialogflow'], function (dialogflow) {
+    //@google-cloud/dialogflow is now loaded.
+});
+
+require(['uuid'], function (uuid) {
+    //uuid is now loaded.
+});
 
 const socket = io();
 
