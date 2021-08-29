@@ -18,7 +18,8 @@ const server = app.listen(process.env.PORT || 5000, () => {
 });
 
 const io = require('socket.io')(server);
-io.on('connection', function(socket){
+socket = io();
+socket.on('connection', function(socket){
   console.log('a user connected');
 });
 
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
   res.sendFile('index.html');
 });
 
-io.on('connection', function(socket) {
+socket.on('connection', function(socket) {
   socket.on('chat message', (text) => {
     console.log('Message: ' + text);
 
