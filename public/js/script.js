@@ -1,6 +1,6 @@
 'use strict';
 
-const socket = io();
+//const socket = io();
 
 var socket = io.connect('https://testvoicebotconsole.herokuapp.com');
 
