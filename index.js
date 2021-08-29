@@ -24,10 +24,13 @@ io.on('connection', function(socket){
 
 const apiai = require('apiai')(APIAI_TOKEN);
 
+
+
+
 // Web UI
-app.get('/', (req, res) => {
-  res.sendFile('index.html');
-});
+//app.get('/', (req, res) => {
+  //res.sendFile('index.html');
+//});
 
 io.on('connection', function(socket) {
   socket.on('chat message', (text) => {
