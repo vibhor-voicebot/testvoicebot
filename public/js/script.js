@@ -2,7 +2,7 @@
 
 const socket = io();
 
-
+var socket = io.connect('https://testvoicebotconsole.herokuapp.com');
 
 const outputYou = document.querySelector('.output-you');
 const outputBot = document.querySelector('.output-bot');
