@@ -10,9 +10,9 @@
   "scripts": {
     "start": "node index.js",
     "backend": "nodemon index.js",
-    "frontend": "npm run start --prefix client",
+    "frontend": "npm run start",
     "start:dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
   },
   "author": "Tomomi Imura",
   "license": "MIT",
