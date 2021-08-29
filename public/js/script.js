@@ -2,13 +2,6 @@
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
 
-require(['dialogflow'], function (dialogflow) {
-    //dialogflow is now loaded.
-});
-
-require(['uuid'], function (uuid) {
-    //uuid is now loaded.
-});
 
 
 
