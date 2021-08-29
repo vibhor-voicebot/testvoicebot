@@ -2,7 +2,8 @@
 // Instantiate a DialogFlow client.
 //const dialogflow = dialogflow();
 
-
+const dialogflow = require('dialogflow');
+const uuid = require('uuid');
 
 
 const socket = io();
@@ -67,7 +68,7 @@ socket.on('bot reply', function(replyText) {
  * @param {string} projectId The project to be used
  */
 async function runSample() { 
-  const sessionId = uuid();
+  const sessionId = uuid.v4();
 
 var config = {
   credentials: {
