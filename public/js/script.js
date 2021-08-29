@@ -31,9 +31,9 @@ recognition.addEventListener('result', (e) => {
   outputYou.textContent = text;
   console.log('Confidence: ' + e.results[0][0].confidence);
 
-  socket.on('connection', function(socket) {
+//  socket.on('connection', function(socket) {
   socket.emit('chat message', text);
-  });
+ // });
 
 
 });
@@ -55,7 +55,7 @@ function synthVoice(text) {
 
 //var moduleName2 = 'socket.io';
 //require([moduleName2], function(io){
-socket.on('connection', function(socket) {
+//socket.on('connection', function(socket) {
 socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
 
@@ -64,7 +64,7 @@ socket.on('bot reply', function(replyText) {
   if(replyText == '') replyText = '(No answer...)';
   outputBot.textContent = replyText;
 });
-});
+//});
 
 
 //});
