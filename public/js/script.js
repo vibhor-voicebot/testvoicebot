@@ -55,6 +55,8 @@ socket.io.on('connection', function(socket) {
 socket.on('bot reply', function(replyText) {
   synthVoice(replyText);
 
+  console.log('replyText: ' + replyText);
+  
   if(replyText == '') replyText = '(No answer...)';
   outputBot.textContent = replyText;
 });
